@@ -15,7 +15,7 @@ class ReadingFunctionsTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = ["000000000", "111111111", "123456789", "222222222"])
+    @ValueSource(strings = ["000000000", "111111111", "123456789", "222222222", "333333333", "444444444", "555555555", "666666666", "777777777", "888888888", "999999999"])
     fun readNumberFromStringRepresentation_test(accountNumber: String) {
         val fileStr = this::class.java.classLoader.getResource("fixtures/${accountNumber}.txt").readText()
         //val file = File("src/test/resources/fixtures/accountNumbers.txt").readLines()
