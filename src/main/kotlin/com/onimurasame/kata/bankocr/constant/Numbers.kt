@@ -1,5 +1,11 @@
 package com.onimurasame.kata.bankocr.constant
 
+val NONE = arrayOf(
+    booleanArrayOf(false),
+    booleanArrayOf(false, false, false),
+    booleanArrayOf(false, false, false)
+)
+
 /*
     123
 1    _
@@ -8,7 +14,7 @@ package com.onimurasame.kata.bankocr.constant
 4
  */
 
-val zero = arrayOf(
+val ZERO = arrayOf(
     booleanArrayOf(true),
     booleanArrayOf(true, false, true),
     booleanArrayOf(true, true, true)
@@ -22,7 +28,7 @@ val zero = arrayOf(
 4
  */
 
-val one = arrayOf(
+val ONE = arrayOf(
     booleanArrayOf(false),
     booleanArrayOf(false, false, true),
     booleanArrayOf(false, false, true)
@@ -36,7 +42,7 @@ val one = arrayOf(
 4
  */
 
-val two = arrayOf(
+val TWO = arrayOf(
     booleanArrayOf(true),
     booleanArrayOf(false, true, true),
     booleanArrayOf(true, true, false)
@@ -50,7 +56,7 @@ val two = arrayOf(
 4
  */
 
-val three = arrayOf(
+val THREE = arrayOf(
     booleanArrayOf(true),
     booleanArrayOf(false, true, true),
     booleanArrayOf(false, true, true)
@@ -64,7 +70,7 @@ val three = arrayOf(
 4
  */
 
-val four = arrayOf(
+val FOUR = arrayOf(
     booleanArrayOf(false),
     booleanArrayOf(true, false, true),
     booleanArrayOf(false, false, true)
@@ -78,7 +84,7 @@ val four = arrayOf(
 4
  */
 
-val five = arrayOf(
+val FIVE = arrayOf(
     booleanArrayOf(true),
     booleanArrayOf(true, true, false),
     booleanArrayOf(false, true, true)
@@ -92,7 +98,7 @@ val five = arrayOf(
 4
  */
 
-val six = arrayOf(
+val SIX = arrayOf(
     booleanArrayOf(true),
     booleanArrayOf(true, true, false),
     booleanArrayOf(true, true, true)
@@ -106,7 +112,7 @@ val six = arrayOf(
 4
  */
 
-val seven = arrayOf(
+val SEVEN = arrayOf(
     booleanArrayOf(true),
     booleanArrayOf(false, false, true),
     booleanArrayOf(false, false, true)
@@ -120,7 +126,7 @@ val seven = arrayOf(
 4
  */
 
-val eight = arrayOf(
+val EIGHT = arrayOf(
     booleanArrayOf(true),
     booleanArrayOf(true, true, true),
     booleanArrayOf(true, true, true)
@@ -134,12 +140,12 @@ val eight = arrayOf(
 4
  */
 
-val nine = arrayOf(
+val NINE = arrayOf(
     booleanArrayOf(true),
     booleanArrayOf(true, true, true),
     booleanArrayOf(false, false, true)
 )
 
-val numbersArray = arrayOf(
-    zero, one, two, three, four, five, six, seven, eight, nine
+val NUMBERS_ARRAY = arrayOf(
+    ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE
 )

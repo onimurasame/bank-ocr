@@ -1,3 +1,5 @@
 package com.onimurasame.kata.bankocr.constant
 
-val accountNumberLength = 9
+val TEXT_ACCOUNT_NUMBER_HEIGHT = 3
+val TEXT_ACCOUNT_NUMBER_LENGTH = 3
+val ACCOUNT_NUMBER_LENGTH = 9

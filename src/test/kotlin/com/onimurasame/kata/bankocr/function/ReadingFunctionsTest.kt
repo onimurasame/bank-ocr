@@ -1,6 +1,6 @@
 package com.onimurasame.kata.bankocr.function
 
-import com.onimurasame.kata.bankocr.constant.numbersArray
+import com.onimurasame.kata.bankocr.constant.NUMBERS_ARRAY
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.params.ParameterizedTest
@@ -11,7 +11,7 @@ class ReadingFunctionsTest {
     @ParameterizedTest
     @ValueSource(ints = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
     fun readNumberFromArray_test(number: Int) {
-        Assertions.assertTrue(number == readNumberFromArray(numbersArray[number]))
+        Assertions.assertTrue(number == readNumberFromArray(NUMBERS_ARRAY[number]))
     }
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ class ReadingFunctionsTest {
         //val file = readFile("src/test/resources/fixtures/accountNumbers.txt")
 
         val strArray = fileStr.split("\n")
-        val parsedAccountNumber = readNumberFromStringRepresentation(arrayOf(strArray[0], strArray[1], strArray[2]))
+        val parsedAccountNumber = readEntireNumberFromString(arrayOf(strArray[0], strArray[1], strArray[2]))
         println(parsedAccountNumber)
         assertEquals(accountNumber, parsedAccountNumber)
 

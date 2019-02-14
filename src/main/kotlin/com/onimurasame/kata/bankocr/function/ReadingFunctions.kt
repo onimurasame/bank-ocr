@@ -1,45 +1,60 @@
 package com.onimurasame.kata.bankocr.function
 
-import com.onimurasame.kata.bankocr.constant.numbersArray
-import com.onimurasame.kata.bankocr.constant.zero
+import com.onimurasame.kata.bankocr.constant.ACCOUNT_NUMBER_LENGTH
+import com.onimurasame.kata.bankocr.constant.NONE
+import com.onimurasame.kata.bankocr.constant.NUMBERS_ARRAY
 
-fun readNumberFromStringRepresentation(stringRepresentation: Array<String>): String {
+fun readEntireNumberFromString(stringRepresentation: Array<String>): String {
     var accountNumber = ""
 
-    for (i: Int in 0..8) {
-        var numberArrayRepresentation: Array<BooleanArray> = zero
-        for (j: Int in 0..2) {
-            for (k: Int in 0..2) {
-                var line = stringRepresentation[j]
-                if (j == 0) {
-                    if (!line[1 + (3 * i)].equals(' ')) {
-                        numberArrayRepresentation[0][0] = true
-                    }
-                } else {
-                    if (!line[j + (3 * i)].equals(' ')) {
-                        numberArrayRepresentation[j][k] = true
-                    }
-                }
-            }
-        }
+    stringRepresentation[0] = normalizeStringLength(stringRepresentation[0])
+    stringRepresentation[1] = normalizeStringLength(stringRepresentation[1])
+    stringRepresentation[2] = normalizeStringLength(stringRepresentation[2])
 
-        accountNumber += readNumberFromArray(numberArrayRepresentation)
+    for (i: Int in 0 until ACCOUNT_NUMBER_LENGTH * 3 step 3) {
+        val isolatedNumberArray: Array<String> = arrayOf("", "", "")
+
+        isolatedNumberArray[0] = stringRepresentation[0].slice(i..i + 2)
+        isolatedNumberArray[1] = stringRepresentation[1].slice(i..i + 2)
+        isolatedNumberArray[2] = stringRepresentation[2].slice(i..i + 2)
+
+
+        accountNumber += parseStringRepresentationNumber(isolatedNumberArray)
+
     }
 
-
     return accountNumber
+
+}
+
+fun parseStringRepresentationNumber(stringNumber: Array<String>): Int {
+    val numberArray: Array<BooleanArray> = NONE
+
+    numberArray[0][0] = stringNumber[0].contains("_")
+
+    for (i: Int in 1..2) {
+        for (j: Int in 0..2) {
+            numberArray[i][j] = !stringNumber[i][j].isWhitespace()
+        }
+    }
+
+    return readNumberFromArray(numberArray)
 }
 
 fun readNumberFromArray(number: Array<BooleanArray>): Int {
     val numberOfPossibilities: Array<Int> = shortenNumberPossibilities(number)
 
     for (possibleNumber: Int in numberOfPossibilities) {
-        if (number contentDeepEquals numbersArray[possibleNumber]) {
+        if (number contentDeepEquals NUMBERS_ARRAY[possibleNumber]) {
             return possibleNumber
         }
     }
 
     return -1
+}
+
+private fun normalizeStringLength(string: String): String {
+    return string.padEnd(27)
 }
 
 private fun shortenNumberPossibilities(number: Array<BooleanArray>): Array<Int> {
