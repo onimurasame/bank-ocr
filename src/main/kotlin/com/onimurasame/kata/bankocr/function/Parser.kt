@@ -4,7 +4,7 @@ import com.onimurasame.kata.bankocr.constant.ACCOUNT_NUMBER_LENGTH
 import com.onimurasame.kata.bankocr.constant.NONE
 import com.onimurasame.kata.bankocr.constant.NUMBERS_ARRAY
 
-fun readEntireNumberFromString(stringRepresentation: Array<String>): String {
+fun parseAccountNumber(stringRepresentation: Array<String>): String {
     var accountNumber = ""
 
     stringRepresentation[0] = normalizeStringLength(stringRepresentation[0])
@@ -19,7 +19,7 @@ fun readEntireNumberFromString(stringRepresentation: Array<String>): String {
         isolatedNumberArray[2] = stringRepresentation[2].slice(i..i + 2)
 
 
-        accountNumber += parseStringRepresentationNumber(isolatedNumberArray)
+        accountNumber += parseNumber(isolatedNumberArray)
 
     }
 
@@ -27,7 +27,7 @@ fun readEntireNumberFromString(stringRepresentation: Array<String>): String {
 
 }
 
-fun parseStringRepresentationNumber(stringNumber: Array<String>): Int {
+fun parseNumber(stringNumber: Array<String>): Int {
     val numberArray: Array<BooleanArray> = NONE
 
     numberArray[0][0] = stringNumber[0].contains("_")
@@ -38,10 +38,10 @@ fun parseStringRepresentationNumber(stringNumber: Array<String>): Int {
         }
     }
 
-    return readNumberFromArray(numberArray)
+    return arrayNumberToInt(numberArray)
 }
 
-fun readNumberFromArray(number: Array<BooleanArray>): Int {
+fun arrayNumberToInt(number: Array<BooleanArray>): Int {
     val numberOfPossibilities: Array<Int> = shortenNumberPossibilities(number)
 
     for (possibleNumber: Int in numberOfPossibilities) {

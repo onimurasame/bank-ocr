@@ -11,7 +11,7 @@ class ReadingFunctionsTest {
     @ParameterizedTest
     @ValueSource(ints = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
     fun readNumberFromArray_test(number: Int) {
-        Assertions.assertTrue(number == readNumberFromArray(NUMBERS_ARRAY[number]))
+        Assertions.assertTrue(number == arrayNumberToInt(NUMBERS_ARRAY[number]))
     }
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ class ReadingFunctionsTest {
         //val file = readFile("src/test/resources/fixtures/accountNumbers.txt")
 
         val strArray = fileStr.split("\n")
-        val parsedAccountNumber = readEntireNumberFromString(arrayOf(strArray[0], strArray[1], strArray[2]))
+        val parsedAccountNumber = parseAccountNumber(arrayOf(strArray[0], strArray[1], strArray[2]))
         println(parsedAccountNumber)
         assertEquals(accountNumber, parsedAccountNumber)
 
