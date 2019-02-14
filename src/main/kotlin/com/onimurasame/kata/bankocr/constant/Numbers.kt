@@ -72,7 +72,7 @@ val THREE = arrayOf(
 
 val FOUR = arrayOf(
     booleanArrayOf(false),
-    booleanArrayOf(true, false, true),
+    booleanArrayOf(true, true, true),
     booleanArrayOf(false, false, true)
 )
 
@@ -143,7 +143,7 @@ val EIGHT = arrayOf(
 val NINE = arrayOf(
     booleanArrayOf(true),
     booleanArrayOf(true, true, true),
-    booleanArrayOf(false, false, true)
+    booleanArrayOf(false, true, true)
 )
 
 val NUMBERS_ARRAY = arrayOf(

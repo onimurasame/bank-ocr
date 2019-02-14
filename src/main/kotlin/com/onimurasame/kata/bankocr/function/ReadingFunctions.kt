@@ -61,8 +61,7 @@ private fun shortenNumberPossibilities(number: Array<BooleanArray>): Array<Int> 
     return when {
         !number[0][0] -> arrayOf(1, 4)
         !number[1][1] -> arrayOf(0, 7)
-        !number[2][1] -> arrayOf(9)
         !number[1][0] -> arrayOf(2, 3)
-        else -> arrayOf(5, 6, 8)
+        else -> arrayOf(5, 6, 8, 9)
     }
 }
